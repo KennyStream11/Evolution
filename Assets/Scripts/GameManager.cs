@@ -1,35 +1,15 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] List<Generateur> generateurs;
     [SerializeField] TMP_Text texteAdn;
     [SerializeField] TMP_Text texteProduction;
 
-
-    //Setup valeurs mitochondries
-    //Premier générateur Mitochondrie
-    //Cout de départ 10 ADN
-    //Production : 1 ADN
-    //Multiplicateur de cout : 15%
-    [SerializeField] TMP_Text texteBoutonMitochondrie;
-    [SerializeField] Button boutonMitochondrie;
-    int nbMitochondrie = 0;
-    [SerializeField] float coutMitochondrie = 10f;
-    [SerializeField] float productionMitochondrie = 1f;
     [SerializeField] float multiplicateurCout = 1.15f;
-
-    //Setup valeurs Ribosome
-    //Deuxième générateur Ribosome
-    //Cout de départ 100 ADN
-    //Production : 8 ADN
-    //Multiplicateur de cout : 15%
-    [SerializeField] TMP_Text texteBoutonRibosome;
-    [SerializeField] Button boutonRibosome;
-    int nbRibosome = 0;
-    [SerializeField] float coutRibosome = 100f;
-    [SerializeField] float productionRibosome = 8f;
-
 
 
 
@@ -41,8 +21,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Setup du bouton d'achat
-        MettreAJourAffichageMitochondrie();
-        MettreAJourAffichageRibosome();
+        MettreAJourAffichage();
 
     }
 
@@ -57,76 +36,49 @@ public class GameManager : MonoBehaviour
         adn += adnCetteImage;
         // Affichage du compteur
         texteAdn.text = "ADN : " + Mathf.FloorToInt(adn);
-        
+
         //Griser le bouton si l'adn est insuffisant pour Mitochondrie
-        if(adn >= coutMitochondrie)
+        foreach (Generateur g in generateurs)
         {
-            boutonMitochondrie.interactable = true;
-        }
-        else
-        {
-            boutonMitochondrie.interactable = false;
-        }
-        if (adn >= coutRibosome)
-        {
-            boutonRibosome.interactable = true;
-        }
-        else
-        {
-            boutonRibosome.interactable = false;
+            if (adn >= g.cout)
+            {
+                g.bouton.interactable = true;
+            }
+            else
+            {
+                g.bouton.interactable = false;
+            }
         }
 
     }
-    public void AcheterMitochondrie()
+
+    public void Acheter(int index)
     {
-        //Si le joueur a au moins autant d’ADN que le coût de la mitochondrie:
-        if (adn >= coutMitochondrie)
+        Generateur g = generateurs[index];
+
+        //Si le joueur a au moins autant d’ADN que le coût du générateur:
+        if (adn >= g.cout)
         {
             //retirer le coût de son ADN,
-            adn -= coutMitochondrie;
+            adn -= g.cout;
 
-            //ajouter 1 au nombre de mitochondries,
-            nbMitochondrie++;
+            //ajouter 1 au nombre du générateur,
+            g.nombre++;
 
-            //augmenter la production par seconde de la production d’une mitochondrie,
-            adnParSeconde += productionMitochondrie;
+            //augmenter la production par seconde de la production du générateur,
+            adnParSeconde += g.production;
 
             //multiplier le coût par le multiplicateur,
-            coutMitochondrie *= multiplicateurCout;
+            g.cout *= multiplicateurCout;
 
             //mettre à jour l’affichage.
-            MettreAJourAffichageMitochondrie();
-            Debug.Log("Mitochondrie achetée avec succès !");
+            MettreAJourAffichage();
+            Debug.Log(g.nom + " achetée avec succès !");
+
         }
         else
         {
-            Debug.Log("Pas assez d'adn (coût : " + coutMitochondrie + ")");
-        }
-    }
-    public void AcheterRibosome()
-    {
-        //Si le joueur a au moins autant d’ADN que le coût de la Ribosome:
-        if (adn >= coutRibosome)
-        {
-            //retirer le coût de son ADN,
-            adn -= coutRibosome;
-
-            //ajouter 1 au nombre de Ribosome,
-            nbRibosome++;
-
-            //augmenter la production par seconde de la production d’une Ribosome,
-            adnParSeconde += productionRibosome;
-
-            //multiplier le coût par le multiplicateur,
-            coutRibosome *= multiplicateurCout;
-
-            //mettre à jour l’affichage.
-            MettreAJourAffichageRibosome();
-            Debug.Log("Ribosome achetée avec succès !");
-        }
-        else
-        {
-            Debug.Log("Pas assez d'adn (coût : " + coutRibosome + ")");
+            Debug.Log("Pas assez d'ADN pour " + g.nom + " (coût : " + g.cout + ")");
         }
     }
 
@@ -139,15 +91,15 @@ public class GameManager : MonoBehaviour
     {
         adn = Cliquer(adn, adnParClic);
     }
-    void MettreAJourAffichageMitochondrie()
+    void MettreAJourAffichage()
     {
+        // 1. le texte de production : la production TOTALE (adnParSeconde), une seule fois
         texteProduction.text = "+ " + adnParSeconde + "/s";
-        texteBoutonMitochondrie.text = "Mitochondrie (x" + nbMitochondrie + ")\nCoût : " + Mathf.CeilToInt(coutMitochondrie) + " ADN";
-        
-    }
-    void MettreAJourAffichageRibosome()
-    {
-        texteBoutonRibosome.text = "Ribosome (x" + nbRibosome + ")\nCoût : " + Mathf.CeilToInt(coutRibosome) + " ADN";
+        foreach (Generateur g in generateurs)
+        {
+            // 2. le texte du bouton de g : nom de g + " (x" + nombre de g + ")\nCoût : " + coût de g arrondi vers le haut + " ADN"
+            g.textBouton.text = g.nom + " (x" + g.nombre + ")\nCoût : " + Mathf.CeilToInt(g.cout) + " ADN";
+        }
 
     }
 }
