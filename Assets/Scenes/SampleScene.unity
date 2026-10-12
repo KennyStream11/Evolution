@@ -918,8 +918,9 @@ MonoBehaviour:
   texteAdn: {fileID: 530071714}
   texteProduction: {fileID: 195585401}
   texteBoutonMitochondrie: {fileID: 1348669672}
-  coutMitochondrie: 0
-  productionMitochondrie: 0
+  boutonMitochondrie: {fileID: 125405040}
+  coutMitochondrie: 10
+  productionMitochondrie: 1
   multiplicateurCout: 1.15
   adnParSeconde: 0
 --- !u!4 &648995201
