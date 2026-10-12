@@ -204,8 +204,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 648995200}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: AcheterMitochondrie
-        m_Mode: 1
+        m_MethodName: Acheter
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -613,12 +613,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 648995200}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: AcheterRibosome
-        m_Mode: 1
+        m_MethodName: Acheter
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1063,15 +1063,7 @@ MonoBehaviour:
     textBouton: {fileID: 1267569408}
   texteAdn: {fileID: 530071714}
   texteProduction: {fileID: 195585401}
-  texteBoutonMitochondrie: {fileID: 1348669672}
-  boutonMitochondrie: {fileID: 125405040}
-  coutMitochondrie: 10
-  productionMitochondrie: 1
   multiplicateurCout: 1.15
-  texteBoutonRibosome: {fileID: 1267569408}
-  boutonRibosome: {fileID: 457539105}
-  coutRibosome: 100
-  productionRibosome: 8
   adnParSeconde: 0
 --- !u!4 &648995201
 Transform:
@@ -1468,6 +1460,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348669670}
   m_CullTransparentMesh: 1
+--- !u!1 &1381776470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381776472}
+  - component: {fileID: 1381776471}
+  m_Layer: 0
+  m_Name: Labo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1381776471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381776470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0917bc7e0d74e584cb2afef90eb8bd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Labo
+--- !u!4 &1381776472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381776470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.76395, y: -1.09464, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664342956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,3 +1725,4 @@ SceneRoots:
   - {fileID: 648995201}
   - {fileID: 1256280008}
   - {fileID: 1976341012}
+  - {fileID: 1381776472}
