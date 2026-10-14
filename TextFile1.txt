@@ -1,0 +1,35 @@
+Tamagochi clicker
+
+L'idée c'est que les joueurs commencent le jeu et reçoivent un oeuf, dans cet oeuf se trouve une créature qui va finir par naitre, donc éclore, et vivre. Cette créature il faudra la nourrir, jouer avec, lui faire ses besoins etc comme un vrai tamagotchi.
+
+Faire grandir sa créature et passer de l'état oeuf, à enfant/bébé, puis ado, puis adulte, et enfin entamer l'ascension fulgurante dans le monde des affaires de leur bestiole, puis commencer la colonisation interplanétaire etc. La progression n'a aucune limite sur le papier
+je me cantonnerai à l'évolution oeuf, ado enfant pour l'instant. En ce qui concerne les créatures dispo (bien qu'elle soit aléatoire au lancement de la partie) les créatures dispo depuis les oeufs seront :
+
+Un chien
+Un chat
+Un pigeon
+
+Le joueur accumule de l'argent avec différentes ressources de clicker et augment ainsi qu'achat d'outils machine pour générer plus d'argent.
+
+il faut que le jeu se dévoile à lui au fur et à mesure.
+
+Un oeuf apparaît au milieu de l'écran et il faut le tapoter pas mal de fois pour le faire éclore, et seul l'oeuf et son éclosion ne sont visible, puis au premier "tap" après l'éclosion de l'oeuf, le joueur fait apparaître de l'argent en haut de l'écran avec une information
+de +1 à côté de l'endroit où il a tapé lui indiquant qu'il peut "tap" l'écran pour gagner de l'argent.
+
+Une fois passé un certain seuil il peut acheter son premier générateur et il découvre la possibilité d'en avoir plusieurs, donc il en achète plusieurs, se dévoile ensuite le générateur suivant mais dissimulé, sous forme d'ombre et avec un prix dessus plus élevé
+qui génèrera + de $ etc. Pour l'instant j'en suis là. Si tu as des idées pour le construire plus loin hésite pas à m'en faire part qu'on construise une vraie expérience unique
+
+Les besoin de la bestiole se dévoile lorsqu'il atteint pour la première fois 10k$.
+
+Il doit lui acheter un appartement dans lequel le poser, plusieurs choix s'offre au joueur (les choix ne changent rien, ils ne sont que visuels)
+
+Une fois dans son appartement le tamagotchi aura plusieures barres à gérer :
+
+Faim :		================	(Acheter de la nourriture pour le nourrir au moins une fois par jour)
+Soif :		============----	(Acheter à de l'eau pour remplir la citerne de l'appartement et qu'il puisse boire)
+Besoins :	=---------------	(Lui laisser faire ses besoin puis nettoyer)
+Amusement :	============----	(Jouer avec lui [Feature + tardive car mini-jeu, en stand-by en attendant])
+
+Une fois la boucle de gameplay acquise et complétée on pourra passer à la suite.
+
+Tout ceci dont comporte un gameplay de clicker, d'achat d'upgrade diverse et de générateurs pour avoir le plus de $ possible pour subvenir aux besoin de l'animal obtenu.

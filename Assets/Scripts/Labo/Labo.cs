@@ -3,27 +3,27 @@ using UnityEngine;
 
 public class Labo : MonoBehaviour
 {
-    List<Creature> creatures = new List<Creature>();
+
 
     //nom, vie, force, vitesse, resistance
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        creatures.Add(new Creature("Requin Puissant", 100, 25, 25, 5));
-        creatures.Add(new Creature("Poisson Globe", 900, 15, 10, 10));
-        creatures.Add(new Creature("", -500, -15, -10, -10));
-        //Combat(creatures[0], creatures[1]);
-        // Après le combat
-        creatures[0].Soigner(30);
-        creatures[0].Soigner(1000);
-        creatures[1].Soigner(30);
-
-        foreach (Creature c in creatures)
-        {
-            c.SePresenter();
-        }
+        List<Creature> ocean = new List<Creature>();
+        Creature meduse = new Creature("Méduse", 30, 1, 1, 1);
+        Creature crabe = new Creature("Crabe", 45, 1, 1, 1);
+        Creature requin = new Creature("Requin Puissant", 100, 1, 1, 1);
+        Creature poissonglobe = new Creature("Poisson Globe", 60, 1, 1, 1);
+        Creature calamar = new Creature("Calamar", 70, 1, 1, 1);
+        ocean.Add(meduse);
+        ocean.Add(crabe);
+        ocean.Add(requin);
+        ocean.Add(poissonglobe);
+        ocean.Add(calamar);
+        AfficherEquipe(ocean);
     }
 
     // Update is called once per frame
@@ -69,6 +69,16 @@ public class Labo : MonoBehaviour
             Debug.Log(b.Nom + " s'est fait terrasser par " + a.Nom);
         }
 
+    }
+
+    void AfficherEquipe(List<Creature> equipe)
+    {
+        for (int i = 0; i < equipe.Count; i++)
+        {
+            Debug.Log((i + 1) + ". " + equipe[i].Nom + " (" + equipe[i].Vie + "/" + equipe[i].VieMax + ")");
+
+        }
+        Debug.Log("Equipe de " + equipe.Count + " créatures.");
     }
 }
 
