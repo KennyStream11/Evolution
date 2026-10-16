@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
         // Setup du bouton d'achat
         MettreAJourAffichage();
 
+        
+
     }
 
 

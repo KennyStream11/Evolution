@@ -21,17 +21,14 @@ public class Oeuf : MonoBehaviour
     {
         if (espece.Rarete == Rarete.Commune)
         {
-            Debug.Log("L'oeuf est Commun, il sera de couleur Verte");
             return commune;
         }
         else if (espece.Rarete == Rarete.Rare)
         {
-            Debug.Log("L'oeuf est Rare, il sera de couleur Bleue");
             return rare;
         }
         else
         {
-            Debug.Log("L'oeuf est Légendaire, il sera de couleur Dorée");
             return legendaire;
         }
     }
@@ -40,17 +37,14 @@ public class Oeuf : MonoBehaviour
     {
         if (espece.Rarete == Rarete.Commune)
         {
-            Debug.Log("L'oeuf est Commun, il mettra 5 taps à éclore!");
             return 5;
         }
         else if (espece.Rarete == Rarete.Rare)
         {
-            Debug.Log("L'oeuf est Rare, il mettra 10 taps à éclore!");
             return 10;
         }
         else
         {
-            Debug.Log("L'oeuf est Légendaire, il mettra 15 taps à éclore!");
             return 15;
         }
     }
@@ -78,9 +72,7 @@ public class Oeuf : MonoBehaviour
 
         imageOeuf.color = couleurDefinie;
         //Logs console debug
-        Debug.Log(couleurDefinie);
-        Debug.Log(tapsPourEclore);
-        Debug.Log(espece.Rarete);
+        Debug.Log("Votre oeuf a été choisi : " + espece.Nom + "! Créature " + espece.Rarete + "! Tapotez " + tapsPourEclore + " fois pour le faire éclore !");
 
     }
 }
