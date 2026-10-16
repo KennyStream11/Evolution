@@ -54,7 +54,7 @@ public class Oeuf : MonoBehaviour
         {
             tapsEnCours++;
             Debug.Log(tapsEnCours);
-            if(tapsEnCours == tapsPourEclore)
+            if (tapsEnCours == tapsPourEclore)
             {
                 Debug.Log("Oeuf éclot");
             }
@@ -63,8 +63,15 @@ public class Oeuf : MonoBehaviour
 
     private void Start()
     {
-        couleurDefinie = CouleurOeuf();
+        //Initialisation et pioche de l'espece et de ses paramètres
         espece = incubateur.TirerEspece();
+        //Utilisation des données piochées
         tapsPourEclore = TapsPourEclore();
+        couleurDefinie = CouleurOeuf();
+        //Logs console debug
+        Debug.Log(couleurDefinie);
+        Debug.Log(tapsPourEclore);
+        Debug.Log(espece.Rarete);
+
     }
 }
