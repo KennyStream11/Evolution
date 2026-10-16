@@ -3,8 +3,9 @@ using UnityEngine;
 public class Oeuf : MonoBehaviour
 {
     [SerializeField] EspeceCreature espece;
-    [SerializeField] int tapsEnCours;
+    [SerializeField] int tapsEnCours = 0;
     [SerializeField] Incubateur incubateur;
+    int tapsPourEclore;
 
     int TapsPourEclore()
     {
@@ -25,10 +26,22 @@ public class Oeuf : MonoBehaviour
         }
     }
 
+    public void TaperOeuf()
+    {
+        if (tapsEnCours < tapsPourEclore)
+        {
+            tapsEnCours++;
+            Debug.Log(tapsEnCours);
+            if(tapsEnCours == tapsPourEclore)
+            {
+                Debug.Log("Oeuf éclot");
+            }
+        }
+    }
+
     private void Start()
     {
         espece = incubateur.TirerEspece();
-        Debug.Log(espece.Nom);
-        Debug.Log(TapsPourEclore());
+        tapsPourEclore = TapsPourEclore();
     }
 }
