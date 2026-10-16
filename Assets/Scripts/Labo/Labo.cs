@@ -24,6 +24,8 @@ public class Labo : MonoBehaviour
         ocean.Add(poissonglobe);
         ocean.Add(calamar);
         AfficherEquipe(ocean);
+        ocean.RemoveAt(0);
+        AfficherEquipe(ocean);
     }
 
     // Update is called once per frame
