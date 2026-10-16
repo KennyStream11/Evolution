@@ -21,7 +21,7 @@ public class GestionPhases : MonoBehaviour
         switch (phaseActuelle)
         {
             case Phase.Oeuf:
-                panneauOeuf.SetActive(true);
+                panneauOeuf.SetActive(true);    
                 panneauBebe.SetActive(false);
                 panneauEnfant.SetActive(false);
                 Debug.Log("Phase Oeuf activée");
@@ -40,6 +40,12 @@ public class GestionPhases : MonoBehaviour
                 break;
         }
     }
+    public void ChangerPhase(Phase nouvellePhase)
+    {
+        phaseActuelle = nouvellePhase;
+        AfficherPhase();
+    }
+
 
     private void Start()
     {

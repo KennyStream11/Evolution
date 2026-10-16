@@ -6,6 +6,7 @@ public class Oeuf : MonoBehaviour
     [SerializeField] EspeceCreature espece;
     [SerializeField] Incubateur incubateur;
     [SerializeField] Image imageOeuf;
+    [SerializeField] GestionPhases gestionPhases;
 
     //Init EGG TAPS
     [SerializeField] int tapsEnCours = 0;
@@ -58,9 +59,11 @@ public class Oeuf : MonoBehaviour
             if (tapsEnCours == tapsPourEclore)
             {
                 Debug.Log("Oeuf éclot");
+                gestionPhases.ChangerPhase(GestionPhases.Phase.Bebe);
             }
         }
     }
+
 
     private void Start()
     {
