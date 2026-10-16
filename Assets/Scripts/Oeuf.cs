@@ -5,7 +5,29 @@ public class Oeuf : MonoBehaviour
     [SerializeField] EspeceCreature espece;
     [SerializeField] int tapsEnCours = 0;
     [SerializeField] Incubateur incubateur;
+    [SerializeField] Color legendaire;
+    [SerializeField] Color rare;
+    [SerializeField] Color commune;
     int tapsPourEclore;
+    Color couleurDefinie;
+    Color CouleurOeuf()
+    {
+        if (espece.Rarete == Rarete.Commune)
+        {
+            Debug.Log("L'oeuf est Commun, il sera de couleur Verte");
+            return commune;
+        }
+        else if (espece.Rarete == Rarete.Rare)
+        {
+            Debug.Log("L'oeuf est Rare, il sera de couleur Bleue");
+            return rare;
+        }
+        else
+        {
+            Debug.Log("L'oeuf est Légendaire, il sera de couleur Dorée");
+            return legendaire;
+        }
+    }
 
     int TapsPourEclore()
     {
@@ -41,6 +63,7 @@ public class Oeuf : MonoBehaviour
 
     private void Start()
     {
+        couleurDefinie = CouleurOeuf();
         espece = incubateur.TirerEspece();
         tapsPourEclore = TapsPourEclore();
     }
