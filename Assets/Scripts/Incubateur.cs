@@ -7,7 +7,6 @@ public class Incubateur : MonoBehaviour
     [SerializeField] float chanceLegendaire = 5f;
     [SerializeField] float chanceRare = 25f;
 
-
     // Tire une espèce au hasard, selon les raretés
     public EspeceCreature TirerEspece()
     {
@@ -53,31 +52,5 @@ public class Incubateur : MonoBehaviour
             return Rarete.Commune;
 
         }
-    }
-    void Start()
-    {
-        int communes = 0;
-        int rares = 0;
-        int legendaires = 0;
-
-        for (int i = 0; i < 100; i++)
-        {
-            EspeceCreature e = TirerEspece();
-
-            if (e.Rarete == Rarete.Legendaire)
-            {
-                legendaires++;
-            }
-            else if (e.Rarete == Rarete.Rare)
-            {
-                rares++;
-            }
-            else
-            {
-                communes++;
-            }
-        }
-
-        Debug.Log("Le tirage a compté : " + communes + " communes/" + rares + " rares/" + legendaires + " legendaires");
     }
 }
