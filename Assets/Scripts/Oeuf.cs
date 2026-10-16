@@ -1,15 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Oeuf : MonoBehaviour
 {
     [SerializeField] EspeceCreature espece;
-    [SerializeField] int tapsEnCours = 0;
     [SerializeField] Incubateur incubateur;
+    [SerializeField] Image imageOeuf;
+
+    //Init EGG TAPS
+    [SerializeField] int tapsEnCours = 0;
+    int tapsPourEclore;
+
+    //Init EGG COLORS
     [SerializeField] Color legendaire;
     [SerializeField] Color rare;
     [SerializeField] Color commune;
-    int tapsPourEclore;
     Color couleurDefinie;
+
     Color CouleurOeuf()
     {
         if (espece.Rarete == Rarete.Commune)
@@ -68,6 +75,8 @@ public class Oeuf : MonoBehaviour
         //Utilisation des données piochées
         tapsPourEclore = TapsPourEclore();
         couleurDefinie = CouleurOeuf();
+
+        imageOeuf.color = couleurDefinie;
         //Logs console debug
         Debug.Log(couleurDefinie);
         Debug.Log(tapsPourEclore);
