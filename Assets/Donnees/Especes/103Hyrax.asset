@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 103Hyrax
   m_EditorClassIdentifier: Assembly-CSharp::EspeceCreature
   nom: Hyrax
-  rarete: Commune
-  color: Gris
+  rarete: 0
+  couleur: {r: 0.8867924, g: 0.4954913, b: 0.3722855, a: 1}

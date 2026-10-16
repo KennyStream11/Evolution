@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 102Chien
   m_EditorClassIdentifier: Assembly-CSharp::EspeceCreature
   nom: Chien
-  rarete: Commune
-  color: Gris
+  rarete: 0
+  couleur: {r: 0.35382116, g: 0.8396226, b: 0.24951048, a: 1}

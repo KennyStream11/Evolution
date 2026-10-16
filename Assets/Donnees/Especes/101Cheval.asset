@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 101Cheval
   m_EditorClassIdentifier: Assembly-CSharp::EspeceCreature
   nom: Cheval
-  rarete: Commune
-  color: Gris
+  rarete: 0
+  couleur: {r: 0.6037736, g: 0.32105833, b: 0.23638305, a: 1}

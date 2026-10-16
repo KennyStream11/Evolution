@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 901Zouzou
   m_EditorClassIdentifier: Assembly-CSharp::EspeceCreature
   nom: Zouzou
-  rarete: Rare
-  color: Bleu
+  rarete: 2
+  couleur: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
