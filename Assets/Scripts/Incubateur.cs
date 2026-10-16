@@ -5,7 +5,7 @@ public class Incubateur : MonoBehaviour
 {
     [SerializeField] List<EspeceCreature> especes;
     [SerializeField] float chanceLegendaire = 5f;
-    [SerializeField] float chanceRare = 25f;
+    [SerializeField] float chanceRare = 30f;
 
 
     // Tire une espèce au hasard, selon les raretés
