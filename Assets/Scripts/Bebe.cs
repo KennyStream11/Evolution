@@ -4,16 +4,11 @@ using TMPro;
 public class Bebe : MonoBehaviour
 {
     [SerializeField] EspeceCreature espece;
-    [SerializeField] TMP_Text textNomBebe;
+    [SerializeField] TMP_Text texteNomBebe;
 
     public void MettreAJourNomBebe(EspeceCreature nouvelleEspece)
     {
         espece = nouvelleEspece;
-        textNomBebe.text = espece.Nom;
-    }
-
-    private void Start()
-    {
-        MettreAJourNomBebe(espece);
+        texteNomBebe.text = espece.Nom;
     }
 }
