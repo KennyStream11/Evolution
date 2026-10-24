@@ -66,15 +66,13 @@ public class Oeuf : MonoBehaviour
                 Debug.Log("Oeuf éclot");
                 bebe.MettreAJourNomBebe(espece);
                 gestionPhases.ChangerPhase(GestionPhases.Phase.Bebe);
-                collection.AddCollection(espece);
-                
             }
         }
     }
 
-
-    private void Start()
+public void PreparerNouvelOeuf()
     {
+        tapsEnCours = 0;
         //Initialisation et pioche de l'espece et de ses paramètres
         espece = incubateur.TirerEspece();
         //Utilisation des données piochées
@@ -85,4 +83,11 @@ public class Oeuf : MonoBehaviour
         //Logs console debug
         Debug.Log("Votre oeuf a été choisi : " + espece.Nom + "! Créature " + espece.Rarete + "! Tapotez " + tapsPourEclore + " fois pour le faire éclore !");
     }
+    private void Start()
+    {
+        PreparerNouvelOeuf();
+    }
 }
+
+
+

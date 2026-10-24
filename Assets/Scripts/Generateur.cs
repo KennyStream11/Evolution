@@ -7,6 +7,7 @@ public class Generateur
 {
     public string nom;
     public float cout;
+    public float coutDeBase;
     public float production;
     public int nombre;
     public Button bouton;

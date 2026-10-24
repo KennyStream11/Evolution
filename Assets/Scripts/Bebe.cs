@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -185,7 +184,7 @@ public class Bebe : MonoBehaviour
             boutonCroissance.interactable = false;
         }
 
-        DeroulementHUD();
+        DeroulementHUDBebe();
     }
 
     public void Grandir()
@@ -212,7 +211,7 @@ public class Bebe : MonoBehaviour
 
     }
 
-    void DeroulementHUD()
+    void DeroulementHUDBebe()
     {
         if(coeur > 10)
         {
@@ -237,6 +236,31 @@ public class Bebe : MonoBehaviour
     }
 
 
+    //METHODE DE RESET DE PARTIE BEBE
+    //RESET LE NOMBRE DE PTS CROISSANCE - RESET NOMBRE DE COEURS - RESET COEUR/S - NB GENERATEURS
+    public void ResetBebe()
+    {
+        ptsCroissance = 0;
+        coutCroissance = 50;
+        MettreAJourCroissance();
+        coeur = 0;
+        coeurParSeconde = 0;
+        foreach (Generateur g in generateurs)
+        {
+            g.nombre = 0;
+            g.cout = g.coutDeBase;
+            MettreAJourAffichage();
+        }
+    }
+    public void ResetDeroulementHUDBebe()
+    {
+        boutonGen1.gameObject.SetActive(false);
+        boutonGen2.gameObject.SetActive(false);
+        texteProduction.gameObject.SetActive(false);
+        boutonCroissance.gameObject.SetActive(false);
+        boutonGrandirObject.gameObject.SetActive(false);
+        texteCroissance.gameObject.SetActive(false);
+    }
 }
 
 
