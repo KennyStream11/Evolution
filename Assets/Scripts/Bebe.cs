@@ -14,7 +14,7 @@ public class Bebe : MonoBehaviour
     {
         espece = nouvelleEspece;
         texteNomBebe.text = espece.Nom;
-        ptsCroissanceRequis = PointsRequisSelonRarete(nouvelleEspece);
+        ptsCroissanceRequis = PointsRequisSelonRarete();
         MettreAJourCroissance();
     }
 
@@ -71,7 +71,7 @@ public class Bebe : MonoBehaviour
     {
         coeur = Cliquer(coeur, coeurParClic);
     }
-    
+
 
     // ========== CROISSANCE ==========
     int ptsCroissance = 0;
@@ -79,13 +79,19 @@ public class Bebe : MonoBehaviour
     [SerializeField] float coutCroissance = 50f;
     [SerializeField] float multiplicateurCoutCroissance = 1.20f;
     [SerializeField] TMP_Text texteCroissance;
-    public int PointsRequisSelonRarete(EspeceCreature g)
+    [SerializeField] TMP_Text texteBoutonCroissance;
+    [SerializeField] Button boutonCroissance;
+    [SerializeField] GameObject boutonGrandirObject;
+    [SerializeField] GestionPhases gestionPhases;
+
+
+    public int PointsRequisSelonRarete()
     {
-        if(g.Rarete == Rarete.Commune)
+        if (espece.Rarete == Rarete.Commune)
         {
             return 10;
         }
-        else if(g.Rarete == Rarete.Rare)
+        else if (espece.Rarete == Rarete.Rare)
         {
             return 15;
         }
@@ -100,6 +106,9 @@ public class Bebe : MonoBehaviour
         //Si le joueur a au moins autant de coeurs que le coût du générateur:
         if (coeur >= coutCroissance)
         {
+            // Debug achat
+            Debug.Log("Point de croissance acheté avec succès ! coeurs dépensé : " + coutCroissance + ")");
+
             //retirer le coût de ses coeurs,
             coeur -= coutCroissance;
 
@@ -109,15 +118,22 @@ public class Bebe : MonoBehaviour
             //multiplier le coût par le multiplicateur,
             coutCroissance *= multiplicateurCoutCroissance;
 
-            //mettre à jour l’affichage.
-            texteCroissance.text = ptsCroissance + "/" + ptsCroissanceRequis + " Croissance";
-            Debug.Log("Point de croissance acheté avec succès !");
+            //Update affichage croissance
+            MettreAJourCroissance();
 
         }
         else
         {
             Debug.Log("Pas assez de Coeurs pour acheter ce point de croissance (coût : " + coutCroissance + ")");
         }
+
+        //Check Max croissance
+        if (ptsCroissance == ptsCroissanceRequis)
+        {
+            boutonCroissance.gameObject.SetActive(false);
+            boutonGrandirObject.SetActive(true);
+        }
+
     }
 
 
@@ -154,17 +170,33 @@ public class Bebe : MonoBehaviour
             }
         }
 
+        // CROISSANCE : Griser bouton realtime si pas assez de coeurs
+
+        if (coeur >= coutCroissance)
+        {
+            boutonCroissance.interactable = true;
+        }
+        else
+        {
+            boutonCroissance.interactable = false;
+        }
+
+    }
+
+    public void Grandir()
+    {
+        gestionPhases.ChangerPhase(GestionPhases.Phase.Enfant);
     }
 
     void MettreAJourCroissance()
     {
-        texteCroissance.text = ptsCroissance + "/" + ptsCroissanceRequis + "Croissance";
+        texteCroissance.text = ptsCroissance + "/" + ptsCroissanceRequis + " Croissance";
+        texteBoutonCroissance.text = "Grandir : " + Mathf.CeilToInt(coutCroissance);
     }
     void MettreAJourAffichage()
     {
         // 1. le texte de production : la production TOTALE (coeurParSeconde), une seule fois
         texteProduction.text = "+ " + coeurParSeconde + "/s";
-        texteCroissance.text = ptsCroissance + "/" + ptsCroissanceRequis + " Croissance";
         foreach (Generateur g in generateurs)
         {
             // 2. le texte du bouton de g : nom de g + " (x" + nombre de g + ")\nCoût : " + coût de g arrondi vers le haut + " Coeurs"
