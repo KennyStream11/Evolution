@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class Bebe : MonoBehaviour
     // ========== IDENTITE ==========
     [SerializeField] EspeceCreature espece;
     [SerializeField] TMP_Text texteNomBebe;
+    [SerializeField] Enfant enfant;
     public void MettreAJourNomBebe(EspeceCreature nouvelleEspece)
     {
         espece = nouvelleEspece;
@@ -25,7 +27,8 @@ public class Bebe : MonoBehaviour
     [SerializeField] List<Generateur> generateurs;
     [SerializeField] TMP_Text texteCoeur;
     [SerializeField] TMP_Text texteProduction;
-
+    [SerializeField] Button boutonGen1;
+    [SerializeField] Button boutonGen2;
     [SerializeField] float multiplicateurCout = 1.15f;
 
     float coeur = 0;
@@ -83,6 +86,7 @@ public class Bebe : MonoBehaviour
     [SerializeField] Button boutonCroissance;
     [SerializeField] GameObject boutonGrandirObject;
     [SerializeField] GestionPhases gestionPhases;
+    [SerializeField] Collection collection;
 
 
     public int PointsRequisSelonRarete()
@@ -148,7 +152,7 @@ public class Bebe : MonoBehaviour
 
     // ========== UPDATE ==========
     void Update()
-    {
+    {   
 
         // Calcul des gains par secondes
         float coeurCetteImage = coeurParSeconde * Time.deltaTime;
@@ -181,11 +185,14 @@ public class Bebe : MonoBehaviour
             boutonCroissance.interactable = false;
         }
 
+        DeroulementHUD();
     }
 
     public void Grandir()
     {
+        enfant.MettreAJourEnfant(espece);
         gestionPhases.ChangerPhase(GestionPhases.Phase.Enfant);
+        collection.AddCollection(espece);
     }
 
     void MettreAJourCroissance()
@@ -204,6 +211,31 @@ public class Bebe : MonoBehaviour
         }
 
     }
+
+    void DeroulementHUD()
+    {
+        if(coeur > 10)
+        {
+            boutonGen1.gameObject.SetActive(true);
+        }
+        if(coeur > 100)
+        {
+            boutonGen2.gameObject.SetActive(true);
+        }
+        if (coeurParSeconde >= 1)
+        {
+            texteProduction.gameObject.SetActive(true);
+        }
+        if (coeurParSeconde > 50 && ptsCroissance < ptsCroissanceRequis )
+        {
+            boutonCroissance.gameObject.SetActive(true);
+        }
+        if(ptsCroissance >= 1)
+        {
+            texteCroissance.gameObject.SetActive(true);
+        }
+    }
+
 
 }
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Oeuf : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Oeuf : MonoBehaviour
     [SerializeField] Image imageOeuf;
     [SerializeField] GestionPhases gestionPhases;
     [SerializeField] Bebe bebe;
+    [SerializeField] Collection collection;
+
 
 
     //Init EGG TAPS
@@ -63,6 +66,8 @@ public class Oeuf : MonoBehaviour
                 Debug.Log("Oeuf éclot");
                 bebe.MettreAJourNomBebe(espece);
                 gestionPhases.ChangerPhase(GestionPhases.Phase.Bebe);
+                collection.AddCollection(espece);
+                
             }
         }
     }
@@ -79,6 +84,5 @@ public class Oeuf : MonoBehaviour
         imageOeuf.color = couleurDefinie;
         //Logs console debug
         Debug.Log("Votre oeuf a été choisi : " + espece.Nom + "! Créature " + espece.Rarete + "! Tapotez " + tapsPourEclore + " fois pour le faire éclore !");
-
     }
 }
