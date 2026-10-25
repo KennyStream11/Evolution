@@ -82,6 +82,7 @@ public void PreparerNouvelOeuf()
         imageOeuf.color = couleurDefinie;
         //Logs console debug
         Debug.Log("Votre oeuf a été choisi : " + espece.Nom + "! Créature " + espece.Rarete + "! Tapotez " + tapsPourEclore + " fois pour le faire éclore !");
+
     }
     private void Start()
     {

@@ -15,3 +15,4 @@ MonoBehaviour:
   nom: Cheval
   rarete: 0
   couleur: {r: 0.6037736, g: 0.32105833, b: 0.23638305, a: 1}
+  baseID: 101

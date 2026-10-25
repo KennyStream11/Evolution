@@ -15,3 +15,4 @@ MonoBehaviour:
   nom: Zouzou
   rarete: 2
   couleur: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  baseID: 901

@@ -15,3 +15,4 @@ MonoBehaviour:
   nom: Pigeon
   rarete: 1
   couleur: {r: 0.6026166, g: 0.6981132, b: 0.6853658, a: 1}
+  baseID: 202

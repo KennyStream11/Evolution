@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Incubateur : MonoBehaviour
 {
-    [SerializeField] List<EspeceCreature> especes;
+    [SerializeField] public List<EspeceCreature> especes;
+    public List<EspeceCreature> Especes => especes;
     [SerializeField] float chanceLegendaire = 5f;
     [SerializeField] float chanceRare = 25f;
 

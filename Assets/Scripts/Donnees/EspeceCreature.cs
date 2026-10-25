@@ -17,4 +17,6 @@ public class EspeceCreature : ScriptableObject
     public Rarete Rarete => rarete;
     [SerializeField] Color couleur = Color.white;
     public Color Couleur => couleur;
+    [SerializeField] int baseID;
+    public int BaseID => baseID;
 }

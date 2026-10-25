@@ -15,3 +15,4 @@ MonoBehaviour:
   nom: Chien
   rarete: 0
   couleur: {r: 0.35382116, g: 0.8396226, b: 0.24951048, a: 1}
+  baseID: 102
