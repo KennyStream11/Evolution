@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Collection : MonoBehaviour
 {
     List<EspeceCreature> creatureARanger = new List<EspeceCreature>();
+    [SerializeField] GameObject panneauCollection;
 
     public void AddCollection(EspeceCreature e)
     {
@@ -23,6 +25,15 @@ public class Collection : MonoBehaviour
             }
         }
         Debug.Log("La collection contient " + iterationCreature + " " + e.Nom );
+    }
+
+    public void Ouvrir()
+    {
+        panneauCollection.gameObject.SetActive(true);
+    }
+    public void Fermer()
+    {
+        panneauCollection.gameObject.SetActive(false);
     }
 }
 
