@@ -105,7 +105,14 @@ public class Collection : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Partie chargée");
+        if (PlayerPrefs.HasKey("OeufEnCours"))
+        {
+            ;
+        }
+        else
+        {
+        }
+            Debug.Log("Partie chargée");
         Charger();
     }
 }

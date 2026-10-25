@@ -10,6 +10,7 @@ public class Oeuf : MonoBehaviour
     [SerializeField] GestionPhases gestionPhases;
     [SerializeField] Bebe bebe;
     [SerializeField] Collection collection;
+    public int oeufEnCours;
 
 
 
@@ -80,13 +81,11 @@ public void PreparerNouvelOeuf()
         couleurDefinie = CouleurOeuf();
 
         imageOeuf.color = couleurDefinie;
+
+        oeufEnCours = espece.BaseID;
         //Logs console debug
         Debug.Log("Votre oeuf a été choisi : " + espece.Nom + "! Créature " + espece.Rarete + "! Tapotez " + tapsPourEclore + " fois pour le faire éclore !");
 
-    }
-    private void Start()
-    {
-        PreparerNouvelOeuf();
     }
 }
 
